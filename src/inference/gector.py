@@ -21,7 +21,7 @@ class GectorModel:
             mep = 0.66
 
         self.model = GecBERTModel(vocab_path=args.vocab_path,
-                         model_paths=args.model_path,
+                         model_paths=model_path,
                          max_len=args.max_len, min_len=args.min_len,
                          iterations=args.iteration_count,
                          min_error_probability=mep,
