@@ -26,7 +26,7 @@ class GectorModel:
                          iterations=args.iteration_count,
                          min_error_probability=mep,
                          lowercase_tokens=args.lowercase_tokens,
-                         model_name=args.transformer_model,
+                         model_name=transformer_model,
                          special_tokens_fix=special_tokens_fix,
                          log=False,
                          confidence=confidence_bias,
