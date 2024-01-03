@@ -10,7 +10,6 @@ MODEL_PATHS = {
 def select_model(args):
     mname = args.model_name
     model_path = MODEL_PATHS[mname]
-    breakpoint()
     if 'gector' in mname:
         transformer_model = mname.split('-')[-1]
-        return GectorModel(args, transformer_model, model_path)
+        return GectorModel(args, transformer_model=transformer_model, model_path=model_path)
