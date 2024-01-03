@@ -5,7 +5,7 @@
     },
 
     "conll": {
-        "inc": "/home/alta/BLTSpeaking/exp-vr313/GEC/data/CoNLL-14/conll14st-test-data/noalt/input_sentences.txt",
+        "inc": "/home/alta/BLTSpeaking/exp-vr313/GEC/data/CoNLL-14/conll14st-test-data/noalt/input_sentences.txt"
     },
 
     "bea": {
