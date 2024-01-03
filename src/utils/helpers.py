@@ -5,7 +5,8 @@ import random
 random.seed(10)
 
 
-VOCAB_DIR = Path(__file__).resolve().parent.parent / "data"
+# VOCAB_DIR = Path(__file__).resolve().parent.parent / "data"
+VOCAB_DIR = "data"
 PAD = "@@PADDING@@"
 UNK = "@@UNKNOWN@@"
 START_TOKEN = "$START"

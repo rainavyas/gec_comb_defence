@@ -39,24 +39,10 @@ def core_args():
                         type=int,
                         help='The number of iterations of the model.',
                         default=5)
-    parser.add_argument('--additional_confidence',
-                        type=float,
-                        help='How many probability to add to $KEEP token.',
-                        default=0)
     parser.add_argument('--additional_del_confidence',
                         type=float,
                         help='How many probability to add to $DELETE token.',
                         default=0)
-    parser.add_argument('--min_error_probability',
-                        type=float,
-                        help='Minimum probability for each action to apply. '
-                             'Also, minimum error probability, as described in the paper.',
-                        default=0.0)
-    parser.add_argument('--special_tokens_fix',
-                        type=int,
-                        help='Whether to fix problem with [CLS], [SEP] tokens tokenization. '
-                             'For reproducing reported results it should be 0 for BERT/XLNet and 1 for RoBERTa.',
-                        default=1)
     parser.add_argument('--weights',
                         help='Used to calculate weighted average', nargs='+',
                         default=None)
