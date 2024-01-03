@@ -10,7 +10,7 @@ from allennlp.data.vocabulary import Vocabulary
 from overrides import overrides
 from transformers import AutoTokenizer
 
-from utils.helpers import START_TOKEN
+from src.utils.helpers import START_TOKEN
 
 from gector.tokenization import tokenize_batch
 import copy
