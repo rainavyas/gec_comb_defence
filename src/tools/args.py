@@ -51,3 +51,12 @@ def core_args():
                         help='Seed for reproducibility.',
                         default=1)
     return parser.parse_known_args()
+
+def combined_args():
+    parser = argparse.ArgumentParser(allow_abbrev=False)
+    parser.add_argument('--combination', type=str, choices=['mbr', 'maxvote'], default='mbr', help='method of combination.')
+    parser.add_argument('--pred_files', type=str, required=True, nargs='+', help='path to outputs with predicted sequences')
+    parser.add_argument('--input_file', type=str, required=True, help='path to input file with source incorrect sequences')
+    parser.add_argument('--outfile', type=str, required=True, help='path to save final predictions after combination')
+    parser.add_argument('--votes', type=int, default=2, help='number of model votes to accept an edit for max voting combination')
+    

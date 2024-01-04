@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     # get command line arguments
     args, c = core_args()
-    print(core_args)
+    print(args)
 
     set_seeds(args.seed)
 
