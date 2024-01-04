@@ -9,16 +9,18 @@ class GectorModel:
         else:
             special_tokens_fix = 0
         
-        # get model tweaking hyperparameters
-        if transformer_model == 'bert':
-            confidence_bias = 0.1
-            mep = 0.41
-        elif transformer_model == 'roberta':
-            confidence_bias = 0.2
-            mep = 0.50
-        elif transformer_model == 'xlnet':
-            confidence_bias = 0.35
-            mep = 0.66
+        # # get model tweaking hyperparameters
+        # if transformer_model == 'bert':
+        #     confidence_bias = 0.1
+        #     mep = 0.41
+        # elif transformer_model == 'roberta':
+        #     confidence_bias = 0.2
+        #     mep = 0.50
+        # elif transformer_model == 'xlnet':
+        #     confidence_bias = 0.35
+        #     mep = 0.66
+        confidence_bias = 0
+        mep = 0
 
         self.model = GecBERTModel(vocab_path=args.vocab_path,
                          model_paths=[model_path],
