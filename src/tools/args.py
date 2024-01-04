@@ -59,4 +59,5 @@ def combined_args():
     parser.add_argument('--input_file', type=str, required=True, help='path to input file with source incorrect sequences')
     parser.add_argument('--outfile', type=str, required=True, help='path to save final predictions after combination')
     parser.add_argument('--votes', type=int, default=2, help='number of model votes to accept an edit for max voting combination')
+    return parser.parse_known_args()
     
