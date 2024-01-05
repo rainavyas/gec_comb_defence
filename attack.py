@@ -5,6 +5,7 @@ Perform greedy attack or evaluation
 import sys
 import os
 import json
+import random
 
 from src.tools.args import core_args, attack_args
 from src.tools.tools import set_seeds
@@ -83,9 +84,22 @@ if __name__ == "__main__":
             end = start+aargs.array_word_size
             word_list = word_list[start:end]
         
-        # load data
+        # load train data
         print("Loading data")
-        data, _ = load_data(aargs.train_data_name)
+        fpath = 'experiments/fce-train_sample.txt'
+        if os.path.isfile(fpath):
+            print('Loading cached train data')
+            with open(fpath, 'r') as f:
+                data = json.load(f)
+
+        else:
+            print("re-generating train data")
+            data, _ = load_data(aargs.train_data_name)
+            data = random.sample(data, 1000)
+
+            with open(fpath, 'w') as f:
+                json.dump(data, f)
+        
         
         # perform next iteration of attack
         print("Attacking")
