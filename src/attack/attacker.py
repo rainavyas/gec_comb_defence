@@ -84,20 +84,20 @@ class GreedyAttacker:
     def next_best_word(base_path, pos=1):
         '''
             base_path: directory with scores.txt and prev.txt (or array_job files)
-            Give the next best word from output saved files
+            Give the next best (lowest avg edits) word from output saved files
         '''
 
         def best_from_dict(word_2_score, pos=1):
-            prev = [None, 0]
-            best = [None, 0]
+            prev = [None, 1000]
+            best = [None, 1000]
 
             for k,v in word_2_score.items():
-                if v>best[1]:
+                if v<best[1]:
                     prev[0] = best[0]
                     prev[1] = best[1]
                     best[0]=k
                     best[1]=v
-                elif v>prev[1]:
+                elif v<prev[1]:
                     prev[0]=k
                     prev[1]=v
             if pos==1:
