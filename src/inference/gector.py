@@ -42,7 +42,7 @@ class GectorModel:
         predictions = []
         cnt_corrections = 0
         batch = []
-        for sent in tqdm(data):
+        for sent in data:
             batch.append(sent.split())
             if len(batch) == self.args.batch_size:
                 preds, cnt = self.model.handle_batch(batch)
