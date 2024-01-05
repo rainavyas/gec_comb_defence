@@ -6,7 +6,7 @@ from src.tools.saving import next_dir
 
 class GreedyAttacker:
     def __init__(self, model, word_list):
-        self.vocab_list = word_list
+        self.word_list = word_list
         self.model = model
     
     def attack_next_word(self, sentences, cache_path, curr_adv_phrase='', array_job_id=-1):
