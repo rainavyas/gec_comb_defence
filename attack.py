@@ -84,8 +84,10 @@ if __name__ == "__main__":
             word_list = word_list[start:end]
         
         # load data
+        print("Loading data")
         data, _ = load_data(aargs.train_data_name)
         
         # perform next iteration of attack
+        print("Attacking")
         attacker = GreedyAttacker(model, word_list)
         _, _ = attacker.attack_next_word(data, aargs.base_path, curr_adv_phrase=aargs.prev_phrase, array_job_id=aargs.array_job_id)
