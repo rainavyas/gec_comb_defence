@@ -73,7 +73,7 @@ if __name__ == "__main__":
             nltk.download('words')
             from nltk.corpus import words
             word_list = words.words()
-            word_list = list(set(word_list))[:50000]
+            word_list = list(set(word_list))[:20000]
 
             with open(fpath, 'w') as f:
                 json.dump(word_list, f)
@@ -95,7 +95,7 @@ if __name__ == "__main__":
         else:
             print("re-generating train data")
             data, _ = load_data(aargs.train_data_name)
-            data = random.sample(data, 1000)
+            data = random.sample(data, 750)
 
             with open(fpath, 'w') as f:
                 json.dump(data, f)
