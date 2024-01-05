@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # load model
     model = select_model(args)
 
-    if aargs.evaluate:
+    if aargs.eval:
         '''
         Find next best attack word from cached files
         Evaluate the attack phrase wrt to fraction of samples of w/ 0 edits
