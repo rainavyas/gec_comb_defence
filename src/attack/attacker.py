@@ -114,7 +114,7 @@ class GreedyAttacker:
         
         elif os.path.isdir(f'{base_path}/array_job10'):
             combined = {}
-            for i in range(200):
+            for i in range(230):
                 try:
                     with open(f'{base_path}/array_job{i}/scores.txt', 'r') as f:
                         word_2_score = json.load(f)
