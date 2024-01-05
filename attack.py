@@ -62,10 +62,12 @@ if __name__ == "__main__":
         fpath = 'experiments/words.txt'
 
         if os.path.isfile(fpath):
+            print('Loading cached word list')
             with open(fpath, 'r') as f:
                 word_list = json.load(f)
 
         else:
+            print("re-generating word list")
             import nltk
             nltk.download('words')
             from nltk.corpus import words
