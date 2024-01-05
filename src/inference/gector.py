@@ -38,7 +38,7 @@ class GectorModel:
         
         self.args = args
     
-    def predict(self, data):
+    def predict(self, data, return_cnt=False):
         predictions = []
         cnt_corrections = 0
         batch = []
@@ -54,6 +54,8 @@ class GectorModel:
             predictions.extend(preds)
             cnt_corrections += cnt
 
-        print(f"Produced overall corrections: {cnt_corrections}")
+        # print(f"Produced overall corrections: {cnt_corrections}")
         result_lines = [" ".join(x) for x in predictions]
+        if return_cnt:
+            return result_lines, cnt_corrections
         return result_lines
