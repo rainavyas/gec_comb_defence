@@ -64,7 +64,8 @@ def combined_args():
 def attack_args():
     parser = argparse.ArgumentParser(allow_abbrev=False)
     parser.add_argument('--eval', action='store_true', help='Evaluate the next word')
-    parser.add_argument('--prev_phrase', default='', type=str, help='previously learnt adv phrase for greedy approach')
+    parser.add_argument('--eval_attack_phrase', default='do not use', type=str, help='Attack Phrase to evaluate')
+    parser.add_argument('--prev_phrase', default='', type=str, help='previously learnt adv phrase for greedy approach - can be used at evaluation time to find next attack word')
     parser.add_argument('--array_job_id', type=int, default=-1, help='-1 means not to run as an array job')
     parser.add_argument('--array_word_size', type=int, default=100, help='number of words to test for each array job in greedy attack')
     parser.add_argument('--train_data_name', help='Dataset name for learning attack phrase', default='fce-train')

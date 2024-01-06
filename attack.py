@@ -40,17 +40,22 @@ if __name__ == "__main__":
         # data
         data, _ = load_data(args.data_name)
 
-        # get next best word
-        curr_adv_phrase = aargs.prev_phrase
-        pos = len(curr_adv_phrase.split(' '))+1 if curr_adv_phrase != '' else 1
-        base_path = f'{aargs.base_path}/pos{pos}'
-        word, train_score = GreedyAttacker.next_best_word(base_path)
-        print('Next best word')
-        print(word, train_score)
-        print()
+        # get attack phrase
+        if aargs.eval_attack_phrase == 'do not use':
+
+            # get next best word
+            curr_adv_phrase = aargs.prev_phrase
+            pos = len(curr_adv_phrase.split(' '))+1 if curr_adv_phrase != '' else 1
+            base_path = f'{aargs.base_path}/pos{pos}'
+            word, train_score = GreedyAttacker.next_best_word(base_path)
+            print('Next best word')
+            print(word, train_score)
+            print()
+            attack_phrase = curr_adv_phrase + ' ' + word
+        else:
+            attack_phrase = aargs.eval_attack_phrase
 
         # evaluate fraction of samples with 0 edits
-        attack_phrase = curr_adv_phrase + ' ' + word
         frac = GreedyAttacker._eval_attack(model, data, attack_phrase)
         print('Evaluating attack phrase:', attack_phrase)
         print('Evaluating on ', args.data_name)
