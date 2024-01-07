@@ -1,4 +1,5 @@
 from src.inference.gector import GectorModel
+from src.inference.ensemble import MaxvoteEnsModel, MBREnsModel
 
 
 MODEL_PATHS = {
@@ -8,6 +9,22 @@ MODEL_PATHS = {
 }
 
 def select_model(args):
+    mnames = args.model_name
+    if len(mnames) == 1:
+        args.model_name = mnames[0]
+        return _select_single_model(args)
+    else:
+        models = []
+        for curr_mname in mnames:
+            args.model_name = curr_mname
+            models.append(_select_single_model(args))
+        
+        if args.ens_type == 'mbr':
+            return MBREnsModel(models)
+        elif args.ens_type == 'maxvote':
+            return MaxvoteEnsModel(models)
+
+def _select_single_model(args):
     mname = args.model_name
     model_path = MODEL_PATHS[mname]
     if 'gector' in mname:

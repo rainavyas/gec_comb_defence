@@ -3,7 +3,7 @@ import argparse
 def core_args():
     parser = argparse.ArgumentParser(allow_abbrev=False)
     parser.add_argument('--model_name',
-                        type=str, default='gector-roberta',
+                        type=str, default='gector-roberta', nargs='+',
                         help='GEC system'
                         )
     parser.add_argument('--vocab_path',
@@ -50,6 +50,10 @@ def core_args():
                         type=int,
                         help='Seed for reproducibility.',
                         default=1)
+    parser.add_argument('--ens_type',
+                        type=str, choices=['mbr', 'maxvote'],
+                        help='If multiple model names, then method of ensembling specified here',
+                        default='mbr')
     return parser.parse_known_args()
 
 def combined_args():
