@@ -62,7 +62,7 @@ class GreedyAttacker:
         Returns the fraction of samples with 0 edits
         '''
         count = 0
-        for sent in sentences:
+        for sent in tqdm(sentences):
             sent_attack = cls._prep_attacked(sent, attack_phrase)
             _, cnt = model.predict([sent_attack], return_cnt=True)
             if cnt == 0:

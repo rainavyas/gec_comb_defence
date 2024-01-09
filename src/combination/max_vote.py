@@ -16,7 +16,8 @@ class Maxvotecombiner:
         nlp = spacy.load("en_core_web_sm", exclude=['tagger', 'parser', 'ner', 'lemmatizer', 'textcat', 'custom'])
         pred_texts = np.array(pred_texts)
         sent_after_merge = []
-        for i in tqdm(range(len(source_sentences))):
+        # for i in tqdm(range(len(source_sentences))):
+        for i in range(len(source_sentences)):
             source_sentence = source_sentences[i]
             target_sentences = pred_texts[:, i]
             new_sentence = cls._make_changes(nlp, source_sentence, target_sentences=target_sentences, min_count=min_count, debug=False)

@@ -10,7 +10,8 @@ class MBRcombiner:
     @classmethod
     def _make_all_changes(cls, source_sentences, pred_texts):
         selected_samples = []
-        for n, samples in tqdm(enumerate(zip(*pred_texts)), total=len(source_sentences)):
+        # for n, samples in tqdm(enumerate(zip(*pred_texts)), total=len(source_sentences)):
+        for n, samples in enumerate(zip(*pred_texts)), total=len(source_sentences):
             edits = [cls.return_edits(source_sentences[n], s) for s in samples]
             best = [None, -1] # [model index, score] 
             for i in range(len(edits)):
