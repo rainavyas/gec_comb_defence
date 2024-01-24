@@ -1,6 +1,7 @@
 from src.utils.helpers import read_lines
 from .max_vote import Maxvotecombiner
 from .mbr import MBRcombiner
+from .greco_selector import GRECOcombiner
 
 
 def combination_selector(args):
@@ -14,4 +15,6 @@ def combination_selector(args):
         return Maxvotecombiner(source_sentences, pred_texts, min_count=args.votes)
     elif args.combination == 'mbr':
         return MBRcombiner(source_sentences, pred_texts)
+    elif args.combination == 'greco':
+        return GRECOcombiner(source_sentences, pred_texts)
     
