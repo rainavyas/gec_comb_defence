@@ -1,5 +1,5 @@
 from src.inference.gector import GectorModel
-from src.inference.ensemble import MaxvoteEnsModel, MBREnsModel
+from src.inference.ensemble import MaxvoteEnsModel, MBREnsModel, GRECOEnsModel
 
 
 MODEL_PATHS = {
@@ -23,6 +23,8 @@ def select_model(args):
             return MBREnsModel(models)
         elif args.ens_type == 'maxvote':
             return MaxvoteEnsModel(models)
+        elif args.ens_type == 'greco':
+            return GRECOEnsModel(models)
 
 def _select_single_model(args):
     mname = args.model_name

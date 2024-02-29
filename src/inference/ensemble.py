@@ -1,5 +1,6 @@
 from src.combination.mbr import MBRcombiner
 from src.combination.max_vote import Maxvotecombiner
+from src.combination.greco_selector import GRECOcombiner
 import errant
 
 class BaseEnsModel:
@@ -39,6 +40,10 @@ class MBREnsModel(BaseEnsModel, MBRcombiner):
         BaseEnsModel.__init__(self, ind_models)
 
 class MaxvoteEnsModel(BaseEnsModel, Maxvotecombiner):
+    def __init__(self, ind_models):
+        BaseEnsModel.__init__(self, ind_models)
+
+class GRECOEnsModel(BaseEnsModel, GRECOcombiner):
     def __init__(self, ind_models):
         BaseEnsModel.__init__(self, ind_models)
     

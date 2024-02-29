@@ -51,7 +51,7 @@ def core_args():
                         help='Seed for reproducibility.',
                         default=1)
     parser.add_argument('--ens_type',
-                        type=str, choices=['mbr', 'maxvote'],
+                        type=str, choices=['mbr', 'maxvote', 'greco'],
                         help='If multiple model names, then method of ensembling specified here',
                         default='mbr')
     return parser.parse_known_args()
