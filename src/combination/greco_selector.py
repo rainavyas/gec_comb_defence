@@ -17,4 +17,5 @@ class GRECOcombiner:
             scores = [self.model.score(source, sample) for sample in samples]
             ind = scores.index(max(scores))
             selected_samples.append(samples[ind])
+            breakpoint()
         return selected_samples
