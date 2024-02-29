@@ -1,6 +1,7 @@
 from greco.models import GRECO
 import torch
 from src.tools.tools import get_default_device
+from tqdm import tqdm
 
 class GRECOcombiner:
     def __init__(self, source_sentences, pred_texts):
@@ -11,11 +12,10 @@ class GRECOcombiner:
 
     def _make_all_changes(self, source_sentences, pred_texts):
         selected_samples = []
-        # for n, samples in tqdm(enumerate(zip(*pred_texts)), total=len(source_sentences)):
-        for n, samples in enumerate(zip(*pred_texts)):
+        for n, samples in tqdm(enumerate(zip(*pred_texts)), total=len(source_sentences)):
+        # for n, samples in enumerate(zip(*pred_texts)):
             source = source_sentences[n]
             scores = [self.model.score([source], [sample]) for sample in samples]
             ind = scores.index(max(scores))
             selected_samples.append(samples[ind])
-            breakpoint()
         return selected_samples
