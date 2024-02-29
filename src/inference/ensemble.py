@@ -46,5 +46,6 @@ class MaxvoteEnsModel(BaseEnsModel, Maxvotecombiner):
 class GRECOEnsModel(BaseEnsModel, GRECOcombiner):
     def __init__(self, ind_models):
         BaseEnsModel.__init__(self, ind_models)
+        GRECOcombiner.__init__(self, [], [], run_comb=False)
     
     
