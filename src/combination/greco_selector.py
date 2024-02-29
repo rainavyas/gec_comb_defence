@@ -6,8 +6,9 @@ from tqdm import tqdm
 class GRECOcombiner:
     def __init__(self, source_sentences, pred_texts, run_comb=True):
         device = get_default_device()
-        self.model = GRECO('microsoft/deberta-v3-large').to(device)
-        self.model.load_state_dict(torch.load('greco/models/checkpoint.bin'))
+        self.model = GRECO('microsoft/deberta-v3-large')
+        self.model.load_state_dict(torch.load('greco/models/checkpoint.bin', map_location=torch.device('cpu')))
+        self.model.to(device)
         if run_comb:
             self.combined_texts = self._make_all_changes(source_sentences, pred_texts)
 
