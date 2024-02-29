@@ -14,8 +14,7 @@ class GRECOcombiner:
         # for n, samples in tqdm(enumerate(zip(*pred_texts)), total=len(source_sentences)):
         for n, samples in enumerate(zip(*pred_texts)):
             source = source_sentences[n]
-            breakpoint()
-            scores = [self.model.score(source, sample) for sample in samples]
+            scores = [self.model.score([source], [sample]) for sample in samples]
             ind = scores.index(max(scores))
             selected_samples.append(samples[ind])
             breakpoint()
