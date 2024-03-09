@@ -73,6 +73,7 @@ def attack_args():
     parser.add_argument('--array_job_id', type=int, default=-1, help='-1 means not to run as an array job')
     parser.add_argument('--array_word_size', type=int, default=100, help='number of words to test for each array job in greedy attack')
     parser.add_argument('--train_data_name', help='Dataset name for learning attack phrase', default='fce-train')
+    parser.add_argument('--super_sample', action='store_true', help='Train with very small training set sample')
     parser.add_argument('--base_path', type=str, default='experiments/train_attack/fce-train/gector', help='where to cache attack training results')
     return parser.parse_known_args()
     

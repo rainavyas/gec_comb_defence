@@ -91,7 +91,13 @@ if __name__ == "__main__":
         
         # load train data
         print("Loading data")
-        fpath = 'experiments/fce-train_sample.txt'
+        if aargs.super_sample:
+            fpath = 'experiments/fce-train_supersample.txt'
+            sample_size = 150
+        else:
+            sample_size = 750
+            fpath = 'experiments/fce-train_sample.txt'
+
         if os.path.isfile(fpath):
             print('Loading cached train data')
             with open(fpath, 'r') as f:
@@ -100,7 +106,7 @@ if __name__ == "__main__":
         else:
             print("re-generating train data")
             data, _ = load_data(aargs.train_data_name)
-            data = random.sample(data, 750)
+            data = random.sample(data, sample_size)
 
             with open(fpath, 'w') as f:
                 json.dump(data, f)
